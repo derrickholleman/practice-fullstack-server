@@ -5,8 +5,7 @@ const path = require("path"); // path for migrations
 
 const {
   NODE_ENV = "development",
-  DATABASE_URL,
-  PRODUCTION_DATABASE_URL,
+  DATABASE_URL
 } = process.env;
 const URL =
   NODE_ENV === "production"
