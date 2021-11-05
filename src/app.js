@@ -13,6 +13,10 @@ const usersRouter = require("./users/users.router");
 
 app.use("/users", usersRouter);
 
+app.get('/', (req, res) => {
+  res.send('Navigate to /users to see data!')
+})
+
 // Not found handler
 app.use((req, res, next) => {
   next({ status: 404, message: `Not found: ${req.originalUrl}` });
