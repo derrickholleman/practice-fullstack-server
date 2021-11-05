@@ -10,7 +10,7 @@ const {
 } = process.env;
 const URL =
   NODE_ENV === "production"
-    ? PRODUCTION_DATABASE_URL
+    ? DATABASE_URL
     : DATABASE_URL;
 
 module.exports = {
