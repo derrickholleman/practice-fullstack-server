@@ -1,7 +1,6 @@
 // create this file with npx knex init
 
 require("dotenv").config(); // npm install dotenv
-const { DATABASE_URL } = process.env;
 const path = require("path"); // path for migrations
 
 const {
