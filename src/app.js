@@ -25,4 +25,9 @@ app.use((error, req, res, next) => {
   res.status(status).json({ error: message });
 });
 
+// server handling 
+const { PORT = 5000 } = process.env;
+const listener = () => console.log(`Listening on Port ${PORT}!`);
+app.listen(PORT, listener);
+
 module.exports = app;
