@@ -15,19 +15,19 @@ async function read(req, res, next) {
 
 // CREATE
 async function create(req, res, next) {
-  const data = await usersService.create(req.body.data);
-  res.status(201).json({ data });
+  const data = await usersService.create(req.body);
+  res.status(201).json(data);
 }
 
 // UPDATE
 async function update(req, res, next) {
   const { user } = res.locals;
   const updatedUser = {
-    ...req.body.data,
+    ...req.body,
     user_id: user.user_id,
   };
   const data = await usersService.update(updatedUser);
-  res.json({ data });
+  res.json(data);
 }
 
 // DELETE
