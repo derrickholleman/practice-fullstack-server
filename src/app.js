@@ -2,20 +2,15 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*",
-    // origin: "*" to allow all sites to access
-  })
-);
+app.use(cors());
 
 const usersRouter = require("./users/users.router");
 
 app.use("/users", usersRouter);
 
-app.get('/', (req, res) => {
-  res.send('Navigate to /users to see data!')
-})
+app.get("/", (req, res) => {
+  res.send("Navigate to /users to see data!");
+});
 
 // Not found handler
 app.use((req, res, next) => {
@@ -29,7 +24,7 @@ app.use((error, req, res, next) => {
   res.status(status).json({ error: message });
 });
 
-// server handling 
+// server handling
 const { PORT = 5000 } = process.env;
 const listener = () => console.log(`Listening on Port ${PORT}!`);
 app.listen(PORT, listener);
