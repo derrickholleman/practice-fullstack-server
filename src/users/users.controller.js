@@ -37,6 +37,12 @@ async function destroy(req, res, next) {
   res.sendStatus(204);
 }
 
+// ORDER BY AGE
+async function orderByAge(req, res, next) {
+  const data = await usersService.orderByAge();
+  res.json({ average_age: data });
+}
+
 // VALIDATION
 async function userExists(req, res, next) {
   const { userId } = req.params;
@@ -66,5 +72,6 @@ module.exports = {
     asyncErrorBoundary(hasRequiredProperties),
     asyncErrorBoundary(update),
   ],
-  delete: [asyncErrorBoundary(userExists), asyncErrorBoundary(destroy)]
+  delete: [asyncErrorBoundary(userExists), asyncErrorBoundary(destroy)],
+  orderByAge: [asyncErrorBoundary(orderByAge)],
 };
