@@ -8,8 +8,6 @@ router
   .post(controller.create)
   .all(methodNotAllowed);
 
-router.route("/average-age").get(controller.orderByAge);
-
 router
   .route("/:userId")
   .get(controller.read)

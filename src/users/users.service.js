@@ -33,21 +33,10 @@ function destroy(user_id) {
   return knex("users").select("*").where({ user_id }).del();
 }
 
-// ORDER BY AGE
-function orderByAge() {
-  return knex("users")
-    .avg("age as average_age")
-    .then((res) => {
-      const data = Number(res[0].average_age);
-      return data.toFixed(0);
-    });
-}
-
 module.exports = {
   list,
   read,
   create,
   update,
-  delete: destroy,
-  orderByAge,
+  delete: destroy
 };
