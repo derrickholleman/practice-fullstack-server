@@ -13,18 +13,15 @@ function read(user_id) {
 // CREATE
 function create(user) {
   return knex("users")
-    .insert(user)
-    .returning("*")
+    .insert(user, "*")
     .then((newUser) => newUser[0]);
 }
 
 // UPDATE
 function update(updatedUser) {
   return knex("users")
-    .select("*")
     .where({ user_id: updatedUser.user_id })
-    .update(updatedUser)
-    .returning("*")
+    .update(updatedUser, "*")
     .then((updatedUser) => updatedUser[0]);
 }
 
