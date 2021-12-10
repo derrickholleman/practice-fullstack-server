@@ -9,7 +9,7 @@ const usersRouter = require("./users/users.router");
 app.use("/users", usersRouter);
 
 app.get("/", (req, res) => {
-  res.send("Navigate to /users to see data!");
+  res.send("Navigate to /users!");
 });
 
 // Not found handler
