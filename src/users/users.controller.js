@@ -52,7 +52,7 @@ async function userExists(req, res, next) {
     });
   }
 }
-const hasRequiredProperties = hasProperties("name", "email");
+const hasRequiredProperties = hasProperties("name", "email", "city", "birthday", "address", "email");
 
 module.exports = {
   list: asyncErrorBoundary(list),
